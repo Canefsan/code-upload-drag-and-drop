@@ -1,0 +1,65 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "toc_visible": true,
+      "authorship_tag": "ABX9TyO6b8sS9JhAHLajUD9owJPw",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Canefsan/code-upload-drag-and-drop/blob/main/d%C3%B6viz%20%C3%A7evirici\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from forex_python.converter import CurrencyRates\n",
+        "\n",
+        "def doviz_cevir(amount, from_currency, to_currency):\n",
+        "    c = CurrencyRates()\n",
+        "    try:\n",
+        "        # Döviz kuru bilgilerini alıyoruz\n",
+        "        converted_amount = c.convert(from_currency, to_currency, amount)\n",
+        "        return converted_amount\n",
+        "    except Exception as e:\n",
+        "        return f\"Hata oluştu: {e}\"\n",
+        "\n",
+        "def main():\n",
+        "    print(\"Döviz Çevirici Uygulamasına Hoşgeldiniz!\")\n",
+        "\n",
+        "    from_currency = input(\"Çevirmek istediğiniz para birimini girin (örneğin, USD, EUR): \").upper()\n",
+        "    to_currency = input(\"Hedef para birimini girin (örneğin, TRY, EUR): \").upper()\n",
+        "    amount = float(input(\"Çevirmek istediğiniz miktarı girin: \"))\n",
+        "\n",
+        "    converted_amount = doviz_cevir(amount, from_currency, to_currency)\n",
+        "\n",
+        "    print(f\"{amount} {from_currency} = {converted_amount} {to_currency}\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "id": "mPgxb0xgJ_9j"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
